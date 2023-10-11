@@ -1,1 +1,2 @@
 C:\Users\노준영\Desktop\DataStruct\x64\Debug\DataStruct.exe
+C:\Users\IDBLAB\Desktop\DataStruct\DataStruct\x64\Debug\DataStruct.exe
