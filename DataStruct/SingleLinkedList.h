@@ -2,12 +2,13 @@
 #include <iostream>
 using namespace std;
 
+template <typename T>
 class SingleLinkedList
 {
 private:
     struct Node
     {
-        int data;
+        T data;
         Node* next;
     };
 
@@ -26,7 +27,7 @@ public:
         size = 0;
     }
 
-    void PushFront(int data)
+    void PushFront(T data)
     {
         Node* newNode = new Node;
         newNode->data = data;
@@ -46,7 +47,7 @@ public:
         size++;
     }
 
-    void PushBack(int data)
+    void PushBack(T data)
     {
         Node* newNode = new Node;
         newNode->data = data;
@@ -66,15 +67,45 @@ public:
         size++;
     }
 
-    void DeleteNode()
+    void PopFront()
+    {
+        Node* deleteNode = new Node;
+
+        if (head == nullptr && tail == nullptr) // 노드가 없을 때
+        {
+            cout << "삭제할 노드가 없습니다." << endl;
+            return;
+        }
+        else
+        {
+            deleteNode = head;
+            
+            if (deleteNode->next == nullptr) // 노드가 하나밖에 없을 때
+            {
+                head = nullptr;
+                tail = nullptr;
+
+                delete deleteNode;
+            }
+            else // 노드 여러개 있을 때
+            {
+                head = deleteNode->next;
+
+                delete deleteNode;
+            }
+        }
+
+        size--;
+    }
+
+    void PopBack()
     {
 
     }
 
     int Size()
     {
-        cout << "Node의 개수: " << size << endl;
-        return 0;
+        return size;
     }
 
     void Show()
@@ -87,12 +118,21 @@ public:
             cout << showNode->data << endl;
             showNode = showNode->next;
         }
+        
+        delete showNode;
     }
     
     ~SingleLinkedList()
     {
+        Node* deleteNode = new Node;
 
+        for (int i = 0; i < size; i++)
+        {
+            deleteNode = head;
+            head = deleteNode->next;
+            delete deleteNode;
+        }
+        cout << "모든 노드를 삭제했습니다." << endl;
     }
-
 };
 

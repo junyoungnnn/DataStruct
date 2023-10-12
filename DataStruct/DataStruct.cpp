@@ -1,5 +1,6 @@
 ﻿#include <iostream>
 #include "SingleLinkedList.h"
+#include "DoubleLinkedList.h"
 
 using namespace std;
 
@@ -70,7 +71,8 @@ int main()
 
 #pragma endregion
 
-    SingleLinkedList list;
+#pragma region 단방향 연결리스트 클래스
+    /*SingleLinkedList<int> list;
 
     list.PushFront(10);
     list.PushFront(20);
@@ -80,8 +82,25 @@ int main()
     list.PushBack(200);
     list.PushBack(300);
 
-    list.Size();
+    cout << "노드의 개수: " << list.Size() << endl;
     list.Show();
+
+    SingleLinkedList<double> dlist;
+
+    dlist.PushFront(3.14);
+    dlist.PushBack(1.592);
+
+    cout << "노드의 개수: " << dlist.Size() << endl;
+    dlist.Show();*/
+#pragma endregion
+
+#pragma region 양방향 연결리스트
+
+
+
+#pragma endregion
+
+    
 
     return 0;
 }
