@@ -132,7 +132,7 @@ public:
             head = deleteNode->next;
             delete deleteNode;
         }
-        cout << "모든 노드를 삭제했습니다." << endl;
+        cout << "소멸자 호출로 모든 노드를 삭제했습니다." << endl;
     }
 };
 

@@ -96,8 +96,19 @@ int main()
 
 #pragma region 양방향 연결리스트
 
+    DoubleLinkedList<int> doubleList;
 
+    doubleList.PushBack(10);
+    doubleList.PushBack(20);
+    doubleList.PushBack(30);
 
+    doubleList.PushFront(100);
+    doubleList.PushFront(200);
+    doubleList.PushFront(300);
+    doubleList.Insert(6, 1000);
+    cout << "노드의 개수: " << doubleList.Size() << endl;
+
+    doubleList.Show();
 #pragma endregion
 
     
