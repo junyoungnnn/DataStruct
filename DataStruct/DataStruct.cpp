@@ -1,6 +1,7 @@
 ﻿#include <iostream>
 #include "SingleLinkedList.h"
 #include "DoubleLinkedList.h"
+#include "CircleLinkedList.h"
 
 using namespace std;
 
@@ -34,6 +35,10 @@ using namespace std;
 //
 //    return;
 //}
+#pragma endregion
+
+#pragma region 원형 연결 리스트
+
 #pragma endregion
 
 int main()
@@ -96,7 +101,7 @@ int main()
 
 #pragma region 양방향 연결리스트
 
-    DoubleLinkedList<int> doubleList;
+    /*DoubleLinkedList<int> doubleList;
 
     doubleList.PushBack(10);
     doubleList.PushBack(20);
@@ -108,10 +113,30 @@ int main()
     doubleList.Insert(6, 1000);
     cout << "노드의 개수: " << doubleList.Size() << endl;
 
-    doubleList.Show();
+    doubleList.Show();*/
 #pragma endregion
 
-    
+#pragma region 원형 연결 리스트
+
+    CircleLinkedList<int> clist;
+
+    /*clist.PushBack(10);
+    clist.PushBack(20);
+    clist.PushBack(30);
+    clist.PushBack(40);*/
+
+    clist.PushFront(10);
+    clist.PushFront(20);
+    clist.PushFront(30);
+    clist.PushFront(40);
+
+    clist.PopFront();
+
+    clist.Show();
+
+
+#pragma endregion
+
 
     return 0;
 }
