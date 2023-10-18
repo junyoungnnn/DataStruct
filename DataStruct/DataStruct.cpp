@@ -1,142 +1,102 @@
 ﻿#include <iostream>
-#include "SingleLinkedList.h"
-#include "DoubleLinkedList.h"
-#include "CircleLinkedList.h"
+
+#define SIZE 5
 
 using namespace std;
+class Vector2
+{
+private:
+    int x;
+    int y;
+public:
+    Vector2(int x, int y)
+    {
+        this->x = x;
+        this->y = y;
+    }
 
+    Vector2 operator+(const Vector2 &vector)
+    {
+        Vector2 clone(this->x + vector.x, this->y + vector.y);
 
-#pragma region 단일 연결 리스트
-//
-//struct Node
-//{
-//    int data;
-//    Node* next;
-//};
-//
-//void PushFront(Node* target, int data)
-//{
-//    Node* newNode = new Node;
-//    newNode->data = data;
-//    newNode->next = target->next;
-//    target->next = newNode;
-//
-//    return;
-//}
-//// 삭제 하고 클래스 만들기
-//
-//void RemoveNext(Node* target)
-//{
-//    Node* deleteNode = target->next;
-//    
-//    target->next = deleteNode->next;
-//
-//    delete deleteNode;
-//
-//    return;
-//}
-#pragma endregion
+        return clone;
+    }
 
-#pragma region 원형 연결 리스트
+    Vector2 operator-(const Vector2& vector)
+    {
+        Vector2 clone(this->x - vector.x, this->y - vector.y);
 
-#pragma endregion
+        return clone;
+    }
 
+    Vector2 operator*(const Vector2& vector)
+    {
+        Vector2 clone(this->x * vector.x, this->y * vector.y);
+
+        return clone;
+    }
+
+    Vector2 operator/(const Vector2& vector)
+    {
+        Vector2 clone(this->x / vector.x, this->y / vector.y);
+
+        return clone;
+    }
+
+    int GetX()
+    {
+        return x;
+    }
+
+    int GetY()
+    {
+        return y;
+    }
+};
 int main()
 {
-#pragma region 단일 연결 리스트
+#pragma region 거품 정렬
+    // 서로 인접한 두 원소를 검사하여 정렬하는 알고리즘 입니다.
 
-    /*Node* head = new Node;
-    Node* node1 = new Node;
-    Node* node2 = new Node;
-    Node* node3 = new Node;
+    // 시간 복잡도 O(n^2)
 
-    head->data = NULL;
-    node1->data = 10;
-    node2->data = 20;
-    node3->data = 30;
+    /*int bubbleBuffer[SIZE] = { 3,5,4,1,2 };
 
-    head->next = node1;
-    node1->next = node2;
-    node2->next = node3;
-    node3->next = NULL;
-
-    PushFront(head, 100);
-    PushFront(head, 200);
-    PushFront(head, 300);
-
-    RemoveNext(head);
-
-    Node* currentPtr = head->next;
-
-    while (currentPtr != nullptr)
+    for (int i = 0; i < sizeof(bubbleBuffer) / sizeof(int); i++)
     {
-        cout << currentPtr->data << endl;
-        currentPtr = currentPtr->next;
+        cout << bubbleBuffer[i] << " ";
+    }
+    cout << endl;
+
+    for (int i = 0; i < sizeof(bubbleBuffer) / sizeof(int); i++)
+    {
+        for (int j = 0; j < sizeof(bubbleBuffer) / sizeof(int) - 1 - i; j++)
+        {
+            if (bubbleBuffer[j] > bubbleBuffer[j + 1])
+            {
+                swap(bubbleBuffer[j], bubbleBuffer[j + 1]);
+            }
+        }
+    }
+
+    for (const int& element : bubbleBuffer)
+    {
+        cout << element << " ";
     }*/
 
 #pragma endregion
 
-#pragma region 단방향 연결리스트 클래스
-    /*SingleLinkedList<int> list;
+#pragma region  연산자 오버로딩
+   
+    Vector2 UP(0, 1);
+    Vector2 Right(1, 0);
 
-    list.PushFront(10);
-    list.PushFront(20);
-    list.PushFront(30);
-    list.PushFront(40);
-    list.PushBack(100);
-    list.PushBack(200);
-    list.PushBack(300);
+    // clone 객체 (1,1)이 반환이 되서 들어감
+    Vector2 sum = UP + Right;
 
-    cout << "노드의 개수: " << list.Size() << endl;
-    list.Show();
-
-    SingleLinkedList<double> dlist;
-
-    dlist.PushFront(3.14);
-    dlist.PushBack(1.592);
-
-    cout << "노드의 개수: " << dlist.Size() << endl;
-    dlist.Show();*/
+    cout << sum.GetX() << endl;
+    cout << sum.GetY() << endl;
 #pragma endregion
-
-#pragma region 양방향 연결리스트
-
-    /*DoubleLinkedList<int> doubleList;
-
-    doubleList.PushBack(10);
-    doubleList.PushBack(20);
-    doubleList.PushBack(30);
-
-    doubleList.PushFront(100);
-    doubleList.PushFront(200);
-    doubleList.PushFront(300);
-    doubleList.Insert(6, 1000);
-    cout << "노드의 개수: " << doubleList.Size() << endl;
-
-    doubleList.Show();*/
-#pragma endregion
-
-#pragma region 원형 연결 리스트
-
-    CircleLinkedList<int> clist;
-
-    /*clist.PushBack(10);
-    clist.PushBack(20);
-    clist.PushBack(30);
-    clist.PushBack(40);*/
-
-    clist.PushFront(10);
-    clist.PushFront(20);
-    clist.PushFront(30);
-    clist.PushFront(40);
-
-    clist.PopFront();
-
-    clist.Show();
-
-
-#pragma endregion
-
 
     return 0;
 }
