@@ -1,102 +1,41 @@
 ﻿#include <iostream>
 
-#define SIZE 5
-
 using namespace std;
-class Vector2
-{
-private:
-    int x;
-    int y;
-public:
-    Vector2(int x, int y)
-    {
-        this->x = x;
-        this->y = y;
-    }
 
-    Vector2 operator+(const Vector2 &vector)
-    {
-        Vector2 clone(this->x + vector.x, this->y + vector.y);
-
-        return clone;
-    }
-
-    Vector2 operator-(const Vector2& vector)
-    {
-        Vector2 clone(this->x - vector.x, this->y - vector.y);
-
-        return clone;
-    }
-
-    Vector2 operator*(const Vector2& vector)
-    {
-        Vector2 clone(this->x * vector.x, this->y * vector.y);
-
-        return clone;
-    }
-
-    Vector2 operator/(const Vector2& vector)
-    {
-        Vector2 clone(this->x / vector.x, this->y / vector.y);
-
-        return clone;
-    }
-
-    int GetX()
-    {
-        return x;
-    }
-
-    int GetY()
-    {
-        return y;
-    }
-};
 int main()
 {
-#pragma region 거품 정렬
-    // 서로 인접한 두 원소를 검사하여 정렬하는 알고리즘 입니다.
-
+#pragma region 선택 정렬
+    // 정렬되지 않은 데이터들에 대한 가장 작은 데이터를
+    // 찾아서 가장 데이터를 찾아서 가장 앞에 있는 데이터와
+    //  교환하는 알고리즙 입니다.
     // 시간 복잡도 O(n^2)
 
-    /*int bubbleBuffer[SIZE] = { 3,5,4,1,2 };
+    int selectArr[] = { 5,4,9,1,7 };
 
-    for (int i = 0; i < sizeof(bubbleBuffer) / sizeof(int); i++)
+    int size = sizeof(selectArr) / sizeof(int);
+    for (int i = 0; i < size; i++)
     {
-        cout << bubbleBuffer[i] << " ";
-    }
-    cout << endl;
+        int min = selectArr[i];
+        int index = i;
 
-    for (int i = 0; i < sizeof(bubbleBuffer) / sizeof(int); i++)
-    {
-        for (int j = 0; j < sizeof(bubbleBuffer) / sizeof(int) - 1 - i; j++)
+        for (int j = i + 1; j < size; j++)
         {
-            if (bubbleBuffer[j] > bubbleBuffer[j + 1])
+            if (min > selectArr[j])
             {
-                swap(bubbleBuffer[j], bubbleBuffer[j + 1]);
+                min = selectArr[j];
+                index = j;
             }
         }
+        swap(selectArr[index], selectArr[i]);
     }
 
-    for (const int& element : bubbleBuffer)
+    for (const int& element : selectArr)
     {
         cout << element << " ";
-    }*/
-
+    }
+    
 #pragma endregion
 
-#pragma region  연산자 오버로딩
-   
-    Vector2 UP(0, 1);
-    Vector2 Right(1, 0);
-
-    // clone 객체 (1,1)이 반환이 되서 들어감
-    Vector2 sum = UP + Right;
-
-    cout << sum.GetX() << endl;
-    cout << sum.GetY() << endl;
-#pragma endregion
 
     return 0;
 }
