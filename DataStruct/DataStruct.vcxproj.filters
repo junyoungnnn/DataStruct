@@ -29,7 +29,10 @@
     <ClInclude Include="CircleLinkedList.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Bubble Sort &amp; operator.h">
+    <ClInclude Include="BubbleSort &amp; operator.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectSort.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
