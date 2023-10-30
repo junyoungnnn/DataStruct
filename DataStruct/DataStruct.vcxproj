@@ -132,6 +132,7 @@
   <ItemGroup>
     <ClInclude Include="BubbleSort &amp; operator.h" />
     <ClInclude Include="CircleLinkedList.h" />
+    <ClInclude Include="CircleQueue.h" />
     <ClInclude Include="DoubleLinkedList.h" />
     <ClInclude Include="InsertSort.h" />
     <ClInclude Include="LinearQueue.h" />

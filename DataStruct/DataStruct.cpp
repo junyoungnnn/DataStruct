@@ -1,5 +1,5 @@
 ﻿#include <iostream>
-#include "LinearQueue.h"
+#include "CIrcleQueue.h"
 
 using namespace std;
 
@@ -52,7 +52,7 @@ int main()
 
     // 시간 복잡도 O(n + k)
 
-    int arr[] = {2,4,5,1,4,3,2,1,5,4};
+    /*int arr[] = {2,4,5,1,4,3,2,1,5,4};
 
     int count[5] = { 0 };
 
@@ -64,8 +64,25 @@ int main()
     for (int j = 0; j < sizeof(count) / sizeof(int); j++)
     {
         cout << count[j] << endl;
-    }
+    }*/
 
+#pragma endregion
+
+#pragma region 원형 큐
+    // 물리적으로는 선형 구조를 가지고 있으며,
+    // 큐의 시작점과 끝점을 연결한 큐입니다.
+
+    CircleQueue<int> CQ;
+    CQ.DeQueue();
+    CQ.EnQueue(10);
+    CQ.EnQueue(20);
+    CQ.EnQueue(30);
+
+    cout << CQ.Front() << endl;
+
+    CQ.Show();
+    
+    
 #pragma endregion
 
     return 0;

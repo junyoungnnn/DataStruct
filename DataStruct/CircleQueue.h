@@ -1,0 +1,95 @@
+#pragma once
+#include <iostream>
+#define SIZE 4
+
+using namespace std;
+
+template <typename T>
+class CircleQueue
+{
+private:
+	int arr[SIZE] = { NULL };
+	int front;
+	int rear;
+	int size;
+	T data;
+
+public:
+	CircleQueue()
+	{
+		front = SIZE - 1;
+		rear = SIZE - 1;
+		size = 0;
+	}
+
+	void EnQueue(T data)
+	{
+		if (IsFull())
+		{
+		}
+		else
+		{
+			rear = (++front) % SIZE;
+			arr[rear] = data;
+		}
+	}
+
+	void DeQueue()
+	{
+		if (Empty())
+		{
+		}
+		else
+		{
+			rear = (++rear) % SIZE;
+			arr[rear] = NULL;
+		}
+	}
+
+	bool IsFull()
+	{
+		if ((front + 1) % SIZE == rear % SIZE)
+		{
+			cout << "큐가 가득 찼습니다" << endl;
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	bool Empty()
+	{
+		if (front == rear)
+		{
+			cout << "큐가 비었습니다" << endl;
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	T& Front()
+	{
+		return arr[(front + 1) % SIZE];
+	}
+
+	T& Back()
+	{
+		return arr[rear];
+	}
+
+	//
+	void Show()
+	{
+		for (int i = 0; i < SIZE; i++)
+		{
+			cout << arr[i] << endl;
+		}
+	}
+	~CircleQueue() {}
+};
+
