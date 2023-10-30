@@ -1,5 +1,5 @@
 ﻿#include <iostream>
-#include "CIrcleQueue.h"
+#include "VECTOR.h"
 
 using namespace std;
 
@@ -72,7 +72,7 @@ int main()
     // 물리적으로는 선형 구조를 가지고 있으며,
     // 큐의 시작점과 끝점을 연결한 큐입니다.
 
-    CircleQueue<int> CQ;
+    /*CircleQueue<int> CQ;
     CQ.DeQueue();
     CQ.EnQueue(10);
     CQ.EnQueue(20);
@@ -80,9 +80,15 @@ int main()
 
     cout << CQ.Front() << endl;
 
-    CQ.Show();
+    CQ.Show();*/
     
+#pragma endregion
+
+#pragma region 벡터
+
+    VECTOR<int> VT;
     
+
 #pragma endregion
 
     return 0;
