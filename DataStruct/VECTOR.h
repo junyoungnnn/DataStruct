@@ -1,4 +1,6 @@
 #pragma once
+#include <iostream>
+using namespace std;
 
 template <typename T>
 class VECTOR
@@ -12,13 +14,13 @@ public:
 	VECTOR()
 	{
 		size = 0;
-		capacity = 1;
+		capacity = 0;
 		bufferPointer = nullptr;
 	}
 
-	T& operator[] (const int value)
+	T& operator[] (const int& value)
 	{
-		return T[value];
+		return bufferPointer[value];
 	}
 
 	void PushBack(T data)
@@ -35,6 +37,7 @@ public:
 		bufferPointer[size++] = data;
 	}
 
+
 	void PopBack()
 	{
 		if (size <= 0)
@@ -43,7 +46,7 @@ public:
 		}
 		else
 		{
-			bufferPointer[size--] = nullptr;
+			bufferPointer[--size] = NULL;
 		}
 	}
 
@@ -77,9 +80,19 @@ public:
 		bufferPointer = tempBuffer;
 	}
 
+	void Reserve(int newSize)
+	{
+		if (newSize < capacity)
+		{
+			return;
+		}
+
+		Resize(newSize);
+	}
+
 	int& Size()
 	{
-		return size;
+		return size; // 변수 size -> 그 자체가 넘어감
 	}
 
 	~VECTOR()
