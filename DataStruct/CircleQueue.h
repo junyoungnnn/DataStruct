@@ -48,7 +48,7 @@ public:
 
 	bool IsFull()
 	{
-		if ((front + 1) % SIZE == rear % SIZE)
+		if ((rear + 1) % SIZE == front % SIZE)
 		{
 			cout << "Å¥°¡ °¡µæ Ã¡½À´Ï´Ù" << endl;
 			return true;
@@ -74,12 +74,12 @@ public:
 
 	T& Front()
 	{
-		return arr[(front + 1) % SIZE];
+		return arr[(front) % SIZE];
 	}
 
 	T& Back()
 	{
-		return arr[rear];
+		return arr[rear - 1];
 	}
 
 	//

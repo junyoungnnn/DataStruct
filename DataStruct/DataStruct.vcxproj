@@ -127,9 +127,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BinaryTree.h" />
     <ClCompile Include="DataStruct.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BinarySearchTree.h" />
     <ClInclude Include="BubbleSort &amp; operator.h" />
     <ClInclude Include="CircleLinkedList.h" />
     <ClInclude Include="CircleQueue.h" />

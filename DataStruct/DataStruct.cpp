@@ -1,58 +1,60 @@
 ﻿#include <iostream>
 #include "TREE.h"
+#include "CircleQueue.h"
+#include "BinarySearchTree.h"
 
 using namespace std;
 
 #pragma region 트리
-struct Node
-{
-    int data;
-    Node* left;
-    Node* right;
-};
-
-Node* CreateNode(int data, Node* left, Node* right)
-{
-    Node* newNode = new Node;
-    newNode->data = data;
-    newNode->left = left;
-    newNode->right = right;
-
-    return newNode;
-}
-
-void Pre_order(Node* root)
-{
-    
-    if (root != NULL)
-    {
-        cout << root->data << endl;
-        Pre_order(root->left);
-        Pre_order(root->right);
-    }
-}
-
-void In_order(Node* root)
-{
-    
-    if (root != nullptr)
-    {
-        In_order(root->left);
-        cout << root->data << endl;
-        In_order(root->right);
-    }
-}
-
-void Post_order(Node* root)
-{
-    
-    if (root != NULL)
-    {
-        Post_order(root->left);
-        Post_order(root->right);
-        cout << root->data << endl;
-    }
-}
+//struct Node
+//{
+//    int data;
+//    Node* left;
+//    Node* right;
+//};
+//
+//Node* CreateNode(int data, Node* left, Node* right)
+//{
+//    Node* newNode = new Node;
+//    newNode->data = data;
+//    newNode->left = left;
+//    newNode->right = right;
+//
+//    return newNode;
+//}
+//
+//void Pre_order(Node* root)
+//{
+//    
+//    if (root != nullptr)
+//    {
+//        cout << root->data << endl;
+//        Pre_order(root->left);
+//        Pre_order(root->right);
+//    }
+//}
+//
+//void In_order(Node* root)
+//{
+//    
+//    if (root != nullptr)
+//    {
+//        In_order(root->left);
+//        cout << root->data << endl;
+//        In_order(root->right);
+//    }
+//}
+//
+//void Post_order(Node* root)
+//{
+//    
+//    if (root != nullptr)
+//    {
+//        Post_order(root->left);
+//        Post_order(root->right);
+//        cout << root->data << endl;
+//    }
+//}
 // 전위 순회
 // 1. 루트 노드를 방문합니다.
 // 2. 왼쪽 서브 트리를 전위 순회 합니다.
@@ -133,10 +135,11 @@ int main()
     // 큐의 시작점과 끝점을 연결한 큐입니다.
 
     /*CircleQueue<int> CQ;
-    CQ.DeQueue();
+    
     CQ.EnQueue(10);
     CQ.EnQueue(20);
     CQ.EnQueue(30);
+    CQ.DeQueue();
 
     cout << CQ.Front() << endl;
 
@@ -176,6 +179,14 @@ int main()
     cout << "후위" << endl;
     Post_order(node1);*/
 #pragma endregion
+
+BinarySearchTree<int> BST;
+BST.CreateRoot(15);
+BST.Insert(14, BST.GetRoot());
+BST.Insert(12, BST.GetRoot());
+BST.Insert(11, BST.GetRoot());
+BST.Insert(19, BST.GetRoot());
+BST.In_order(BST.GetRoot());
 
     return 0;
 }

@@ -18,6 +18,9 @@
     <ClCompile Include="DataStruct.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="BinaryTree.h">
+      <Filter>헤더 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SingleLinkedList.h">
@@ -51,6 +54,9 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="TREE.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="BinarySearchTree.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
