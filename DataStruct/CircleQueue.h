@@ -17,8 +17,8 @@ private:
 public:
 	CircleQueue()
 	{
-		front = SIZE - 1;
-		rear = SIZE - 1;
+		front = 0;
+		rear = 0;
 		size = 0;
 	}
 
@@ -29,8 +29,8 @@ public:
 		}
 		else
 		{
-			rear = (++front) % SIZE;
 			arr[rear] = data;
+			rear = (rear + 1) % SIZE;
 		}
 	}
 
@@ -41,8 +41,8 @@ public:
 		}
 		else
 		{
-			rear = (++rear) % SIZE;
-			arr[rear] = NULL;
+			arr[front] = NULL;
+			front = (front + 1) % SIZE;
 		}
 	}
 
