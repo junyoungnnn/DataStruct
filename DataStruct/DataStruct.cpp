@@ -186,7 +186,8 @@ BST.Insert(14, BST.GetRoot());
 BST.Insert(12, BST.GetRoot());
 BST.Insert(11, BST.GetRoot());
 BST.Insert(19, BST.GetRoot());
-BST.In_order(BST.GetRoot());
+cout << BST.MinValue(BST.GetRoot()) << endl;
+cout << BST.MaxValue(BST.GetRoot()) << endl;
 
     return 0;
 }

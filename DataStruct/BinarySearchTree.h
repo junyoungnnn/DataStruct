@@ -53,7 +53,12 @@ public:
 	}
 	void Insert(T data, Node* root)
 	{
-		
+		if (Find(root, data))
+		{
+			cout << "중복 값입니다" << endl;
+			return;
+		}
+
 		if (data < root->data)
 		{
 			if (root->left == nullptr)
@@ -89,33 +94,110 @@ public:
 			}
 		}
 
+		/*void Insert(T data, Node * root)
+		{
+			if (root == nullptr)
+			{
+				root = new Node;
+				root->data = data;
+				root->left = nullptr;
+				root->right = nullptr;
+			}
+			else if (root->data > data)
+			{
+				Insert(data, root->left);
+			}
+			else if (root->data < data)
+			{
+				Insert(data, root->right);
+			}
+		}*/
+
 
 	}
 
-	T& MinValue()
+	T& MinValue(Node* root)
 	{
-
+		if (root == nullptr)
+		{
+			cout << "Binary Search Tree is Empty" << endl;
+			exit(1);
+		}
+		
+		if (root->left == nullptr)
+		{
+			return root->data;
+		}
+		else
+		{
+			return MinValue(root->left);
+		}
 	}
 
-	T& MaxValue()
+	T& MaxValue(Node* root)
 	{
+		if (root == nullptr)
+		{
+			cout << "Binary Search Tree is Empty" << endl;
+			exit(1);
+		}
 
+		if (root->right == nullptr)
+		{
+			return root->data;
+		}
+		else
+		{
+			return MaxValue(root->right);
+		}
 	}
 
 	void In_order(Node* root)
 	{
 
-    if (root != nullptr)
-    {
-        In_order(root->left);
-        cout << root->data << endl;
-        In_order(root->right);
-    }
-}
-
-	bool Find()
-	{
-
+		if (root != nullptr)
+		{
+			In_order(root->left);
+			cout << root->data << " ";
+			In_order(root->right);
+		}
 	}
 
+	bool Find(Node* root, T data)
+	{
+		if (data == root->data)
+		{
+			return true;
+		}
+		else if (root->left == nullptr)
+		{
+			return false;
+		}
+		else if (root->right == nullptr)
+		{
+			return false;
+		}
+		else if (data < root->data)
+		{
+			Find(root->left, data);
+		}
+		else if (data > root->data)
+		{
+			Find(root->right, data);
+		}
+	}
+
+	Node* Delete(Node* root, T data)
+	{
+		if (root == nullptr)
+		{
+			cout << "삭제할 데이터가 없습니다" << endl;
+			return root;
+		}
+		
+		if (data < root->data)
+		{
+
+		}
+	}
 };
