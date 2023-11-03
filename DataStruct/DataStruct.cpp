@@ -2,6 +2,7 @@
 #include "TREE.h"
 #include "CircleQueue.h"
 #include "BinarySearchTree.h"
+#include "HEAP.h"
 
 using namespace std;
 
@@ -180,14 +181,32 @@ int main()
     Post_order(node1);*/
 #pragma endregion
 
-BinarySearchTree<int> BST;
-BST.CreateRoot(15);
-BST.Insert(14, BST.GetRoot());
-BST.Insert(12, BST.GetRoot());
-BST.Insert(11, BST.GetRoot());
-BST.Insert(19, BST.GetRoot());
-cout << BST.MinValue(BST.GetRoot()) << endl;
-cout << BST.MaxValue(BST.GetRoot()) << endl;
+#pragma region 이진 탐색 트리
+
+//BinarySearchTree<int> BST;
+//BST.CreateRoot(15);
+//BST.Insert(14, BST.GetRoot());
+//BST.Insert(12, BST.GetRoot());
+//BST.Insert(11, BST.GetRoot());
+//BST.Insert(19, BST.GetRoot());
+//cout << BST.MinValue(BST.GetRoot()) << endl;
+//cout << BST.MaxValue(BST.GetRoot()) << endl;
+
+#pragma endregion
+
+#pragma region 힙
+
+HEAP<int> heap;
+heap.Insert(13);
+heap.Insert(15);
+heap.Insert(20);
+heap.Insert(12);
+heap.Insert(30);
+heap.Insert(50);
+heap.Insert(45);
+heap.Display();
+
+#pragma endregion
 
     return 0;
 }

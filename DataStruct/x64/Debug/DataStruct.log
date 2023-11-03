@@ -1,3 +1,4 @@
 ﻿  DataStruct.cpp
-C:\Users\노준영\Desktop\DataStruct\DataStruct\BinarySearchTree.h(188): warning C4715: 'BinarySearchTree<int>::Find': 모든 제어 경로에서 값을 반환하지는 않습니다.
-  DataStruct.vcxproj -> C:\Users\노준영\Desktop\DataStruct\DataStruct\x64\Debug\DataStruct.exe
+C:\Users\IDBLAB\Desktop\DataStruct\DataStruct\HEAP.h(3,1): warning C4005: 'SIZE': 매크로 재정의
+C:\Users\IDBLAB\Desktop\DataStruct\DataStruct\CircleQueue.h(3,1): message : 'SIZE'의 이전 정의를 참조하십시오.
+  DataStruct.vcxproj -> C:\Users\IDBLAB\Desktop\DataStruct\DataStruct\x64\Debug\DataStruct.exe

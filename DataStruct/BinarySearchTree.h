@@ -197,7 +197,28 @@ public:
 		
 		if (data < root->data)
 		{
+			Delete(root->left, data);
+		}
+		else if (data > root->data)
+		{
+			Delete(root->right, data);
+		}
+		else // 삭제 할 노드를 찾았다.
+		{
+			Node* tempNode;
 
+			if (root->left == nullptr)
+			{
+				tempNode = root->right;
+				delete root;
+				return tempNode;
+			}
+			else if (root->right == nullptr)
+			{
+				tempNode = root->left;
+				delete root;
+				return tempNode;
+			}
 		}
 	}
 };
