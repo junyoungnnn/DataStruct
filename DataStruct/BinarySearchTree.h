@@ -187,6 +187,14 @@ public:
 		}
 	}
 
+	Node* MinMaxValue(Node* root)
+	{
+		if (root->right != nullptr)
+		{
+			return MinMaxValue(root->right);
+		}
+	}
+
 	Node* Delete(Node* root, T data)
 	{
 		if (root == nullptr)
@@ -197,28 +205,40 @@ public:
 		
 		if (data < root->data)
 		{
-			Delete(root->left, data);
+			root->left = Delete(root->left, data);
 		}
 		else if (data > root->data)
 		{
-			Delete(root->right, data);
+			root->right = Delete(root->right, data);
 		}
 		else // 삭제 할 노드를 찾았다.
 		{
 			Node* tempNode;
 
-			if (root->left == nullptr)
+			if (root->left == nullptr && root->right == nullptr) // 자식노드가 없을때
+			{
+				delete root;
+				return nullptr;
+			}
+			else if (root->left == nullptr) // 자식 노드가 하나일때
 			{
 				tempNode = root->right;
 				delete root;
 				return tempNode;
 			}
-			else if (root->right == nullptr)
+			else if (root->right == nullptr) 
 			{
 				tempNode = root->left;
 				delete root;
 				return tempNode;
 			}
+			else // 자식노드가 두개일때
+			{
+				tempNode = MinMaxValue(root->left); // 왼쪽 트리에서 최댓값 찾고
+				root->data = tempNode->data; // 복사
+				root->left = Delete(root->left, tempNode->data); // 왼쪽 트리에서 삭제할 노드 찾아서 삭제
+			}
 		}
+		return root;
 	}
 };

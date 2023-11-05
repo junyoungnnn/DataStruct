@@ -184,13 +184,25 @@ int main()
 #pragma region 이진 탐색 트리
 
 //BinarySearchTree<int> BST;
-//BST.CreateRoot(15);
-//BST.Insert(14, BST.GetRoot());
-//BST.Insert(12, BST.GetRoot());
-//BST.Insert(11, BST.GetRoot());
-//BST.Insert(19, BST.GetRoot());
-//cout << BST.MinValue(BST.GetRoot()) << endl;
-//cout << BST.MaxValue(BST.GetRoot()) << endl;
+//BST.CreateRoot(8);
+//BST.Insert(4, BST.GetRoot());
+//BST.Insert(10, BST.GetRoot());
+//BST.Insert(2, BST.GetRoot());
+//BST.Insert(7, BST.GetRoot());
+//BST.Insert(9, BST.GetRoot());
+//BST.Insert(15, BST.GetRoot());
+//BST.Insert(1, BST.GetRoot());
+//BST.Insert(3, BST.GetRoot());
+//BST.Delete(BST.GetRoot(), 3);
+//BST.Delete(BST.GetRoot(), 2);
+//BST.Delete(BST.GetRoot(), 8);
+//
+//cout << "root의 data: " << BST.GetRoot()->data << endl;
+//BST.In_order(BST.GetRoot());
+//cout << endl;
+//cout << "최솟값: " << BST.MinValue(BST.GetRoot()) << endl;
+//cout << "최댓값: " << BST.MaxValue(BST.GetRoot()) << endl;
+
 
 #pragma endregion
 
