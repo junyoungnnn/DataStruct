@@ -1,8 +1,6 @@
 ﻿#include <iostream>
-#include "TREE.h"
-#include "CircleQueue.h"
-#include "BinarySearchTree.h"
-#include "HEAP.h"
+
+#include "HashTable.h"
 
 using namespace std;
 
@@ -247,8 +245,12 @@ int main()
 
     // 이중 해싱 : 해시 값을 한법 더 해시 함수에 넣어 다른 함수를
     // 도출하는 방식입니다.
+    
+HashTable<int, int> HT;
+HT.Insert(10, 20);
+
 #pragma endregion
 
 
-    return 0;
+return 0;
 }
