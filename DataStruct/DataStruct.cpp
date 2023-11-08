@@ -248,6 +248,7 @@ int main()
     
 HashTable<int, int> HT;
 HT.Insert(10, 20);
+HT.Remove(10);
 
 #pragma endregion
 

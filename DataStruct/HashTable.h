@@ -1,5 +1,7 @@
 #pragma once
 #include <iostream>
+#include <string>
+
 #define SIZE 5
 
 using namespace std;
@@ -23,7 +25,6 @@ private:
 		Node* head;
 	};
 
-
 	int HashValue;
 	Bucket bucket[SIZE];
 public:
@@ -38,12 +39,24 @@ public:
 		}
 	}
 
-	int HashFunction(K key)
+	// string을 제외한 값만 받음
+	template <typename T>
+	int HashFunction(T key)
+	{
+		int hashIndex = (int)key % SIZE;
+
+		return hashIndex;
+	}
+
+	// template 특수화 string 값만 받음
+	template<>
+	int HashFunction(std::string key)
 	{
 		int sumVaule = 0;
-		for (const char &element : key)
+
+		for (const char& element : key)
 		{
-			sumVaule += element;
+			sumVaule += (int)element;
 		}
 		int hashIndex = sumVaule % SIZE;
 
@@ -66,7 +79,7 @@ public:
 		int hashIndex = HashFunction(key);
 
 		// 새로운 노드를 생성합니다.
-		Node * newNode = CreateNode(key, value);
+		Node* newNode = CreateNode(key, value);
 
 		// 노드가 1개라도 존재하지 않는다면
 
@@ -83,10 +96,56 @@ public:
 
 			bucket[hashIndex].count++;
 		}
-
 	}
 
+	void Remove(K key)
+	{
+
+		int hashIndex = HashFunction(key);
+
+		Node* currentNode;
+
+		Node* traceNode = nullptr;
 
 
+		currentNode = bucket[hashIndex].head;
+
+		if (currentNode == nullptr) // 삭제할 노드가 없음
+		{
+
+		}
+		else
+		{
+			while(currentNode->next != nullptr)
+			{
+				currentNode = currentNode->next;
+				if (currentNode->key == key)
+				{
+					cout << "찾고자 하는 키값을 찾았다" << endl;
+					break;
+				}
+				traceNode = currentNode;
+			}
+
+			if (currentNode->next == nullptr)
+			{
+				traceNode->next = nullptr;
+			}
+			else
+			{
+				traceNode->next = currentNode->next;
+			}
+
+			delete currentNode;
+		}
+
+		// 찾고자 하는 키가 마지막일때, nullptr과 연결
+
+		// 찾고자 하는 키가 마지막이 아닐때, 뒤와 연결
+
+		// 찾는 키가 없을 때
+
+		// count--;
+	}
 
 };
