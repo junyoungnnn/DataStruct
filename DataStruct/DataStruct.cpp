@@ -248,10 +248,28 @@ int main()
     
 HashTable<int, int> HT;
 HT.Insert(10, 20);
+HT.Insert(100, 200);
+HT.Insert(1000, 2000);
+HT.Insert(10000, 20000);
 HT.Remove(10);
+HT.Insert(11, 21);
+HT.Insert(12, 22);
+HT.Insert(13, 24);
+HT.Insert(14, 21);
+HT.Insert(15, 28);
+HT.Display();
+
+HashTable<string, int> hashTable;
+
+hashTable.Insert("ABC", 100);
+hashTable.Insert("DEF", 200);
+hashTable.Insert("GHI", 300);
+hashTable.Insert("JKL", 400);
+hashTable.Insert("ZXC", 500);
+hashTable.Display();
+
 
 #pragma endregion
-
 
 return 0;
 }

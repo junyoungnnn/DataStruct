@@ -10,7 +10,7 @@ template <typename K, typename V>
 class HashTable
 {
 private:
-	
+
 	struct Node
 	{
 		K key;
@@ -31,7 +31,7 @@ public:
 
 	HashTable()
 	{
-		
+
 		for (int i = 0; i < SIZE; i++)
 		{
 			bucket[i].count = 0;
@@ -103,42 +103,44 @@ public:
 
 		int hashIndex = HashFunction(key);
 
-		Node* currentNode;
+		Node* currentNode = bucket[hashIndex].head;
 
 		Node* traceNode = nullptr;
 
-
-		currentNode = bucket[hashIndex].head;
-
 		if (currentNode == nullptr) // 삭제할 노드가 없음
 		{
-
+			cout << "HashTable is Empty" << endl;
+			return;
 		}
-		else
+
+		while (currentNode != nullptr)
 		{
-			while(currentNode->next != nullptr)
+
+			if (currentNode->key == key) // 키 값을 찾았다
 			{
-				currentNode = currentNode->next;
-				if (currentNode->key == key)
+				// 삭제하고자 하는 노드가 head노드라면
+				if (currentNode == bucket[hashIndex].head)
 				{
-					cout << "찾고자 하는 키값을 찾았다" << endl;
-					break;
+					bucket[hashIndex].head = currentNode->next;
+					cout << currentNode->key << "을 삭제했습니다." << endl;
 				}
-				traceNode = currentNode;
-			}
+				else
+				{
+					traceNode->next = currentNode->next;
+					cout << currentNode->key << "을 삭제했습니다." << endl;
+				}
 
-			if (currentNode->next == nullptr)
-			{
-				traceNode->next = nullptr;
-			}
-			else
-			{
-				traceNode->next = currentNode->next;
-			}
+				bucket[hashIndex].count--;
 
-			delete currentNode;
+				delete currentNode;
+
+				return;
+			}
+			traceNode = currentNode;
+			currentNode = currentNode->next;
 		}
 
+		cout << "Not key Found" << endl;
 		// 찾고자 하는 키가 마지막일때, nullptr과 연결
 
 		// 찾고자 하는 키가 마지막이 아닐때, 뒤와 연결
@@ -148,4 +150,50 @@ public:
 		// count--;
 	}
 
+	//void Find(K key)
+	//{
+	//	int hashIndex = HashFunction(key);
+
+	//	Node* currentNode = bucket[hashIndex].head;
+
+	//	Node* traceNode = nullptr;
+
+	//	if (currentNode == nullptr) // 삭제할 노드가 없음
+	//	{
+	//		cout << "HashTable is Empty" << endl;
+	//		return;
+	//	}
+
+	//	while (currentNode != nullptr)
+	//	{
+
+	//		if (currentNode->key == key)
+	//		{
+	//			cout << "찾고자 하는 키값을 찾았다"<< currentNode->key << currentNode->value << endl;
+	//			break;
+	//		}
+	//	}
+	//}
+
+	void Display()
+	{
+		for (int i = 0; i < SIZE; i++)
+		{
+			if (bucket[i].head != nullptr)
+			{
+				Node* currentNode = bucket[i].head;
+				for (int j = 0; j < bucket[i].count; j++)
+				{
+					cout<< "[" << i << "]: " << "Key : " << currentNode->key << " " << "Value : " << currentNode->value << " ";
+					currentNode = currentNode->next;
+				}
+			}
+			cout << endl;
+		}
+	}
+
+	~HashTable()
+	{
+
+	}
 };
